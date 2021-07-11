@@ -19,8 +19,8 @@ namespace Checkout\Controllers;
 
 use Checkout\Library\Controller;
 use Checkout\Library\HttpHandler;
-use Checkout\Models\Customer\Cust;
-use Checkout\Models\Instruments\Details;
+use Checkout\Models\Customers\Details;
+use Checkout\Models\Customers\Customer;
 
 /**
  * Handle event controller.
@@ -66,6 +66,6 @@ class CustomerController extends Controller
         $details = new Details($id);
         $response = $this->requestAPI($details->getEndpoint());
 
-        return $this->response($response, Instrument::QUALIFIED_NAME, $mode);
+        return $this->response($response, Customer::QUALIFIED_NAME, $mode);
     }
 }
